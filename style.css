@@ -7,7 +7,7 @@ html, body {
 
 html {
   font-size: 10px;
-  background-color:#ffb6c1	;
+  background-color:mintcream;
 }
 
 body {
@@ -57,7 +57,7 @@ nav, article, aside, footer {
 
 nav {
   height: 50px;
-  background-color: #ff80ff;
+  background-color: lightblue;
   display: flex;
   margin-bottom: 10px;
 }
