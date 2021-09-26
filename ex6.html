@@ -54,12 +54,12 @@ let time = audioPlayer.currentTime;
  context.beginPath();
  context.arc(100, 100, 75, - 0.5 * Math.PI, endAngle, false);
  context.lineWidth = 7;
- context.strokeStyle = "white";
+ context.strokeStyle = "black";
 context.stroke();
 
  if (progress > 0) {
  context.font = '48px Arial';
- context.fillStyle = "white";
+ context.fillStyle = "black";
 context.textAlign = "center";
 context.fillText(progress + "%", 100, 118);
 }
