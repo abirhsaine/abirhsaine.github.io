@@ -1,0 +1,29 @@
+<audio id="player" controls preload tabindex="0" ontimeupdate="updateCanvas()">
+<source type="audio/wav" src="./audioles/myWav.wav"/> 
+<source type="audio/mp3" src="./audioles/myMp3.mp3"/>
+Your  browser does not support HTML5 audio.
+</audio>
+<html>
+<head>
+<SCRIPT LANGUAGE="Javascript" SRC="./geometrie/point.js"> </SCRIPT>
+<script>
+ function init()
+ { 
+ canvas = document.getElementById('myCanvas');
+   player=document.createElement('a');
+   player.setAttribute('href','./audioles/myMp3.mp3');
+   point1 = new point(myCanvas);
+  point1.affiche();
+ 
+ }
+
+<div id="boutton">
+	<button  type="submit">Play</button >
+</div>
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
