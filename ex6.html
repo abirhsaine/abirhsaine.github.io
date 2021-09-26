@@ -1,29 +1,79 @@
+
+<html>
+<head>
+
+</head>
+<body>
 <audio id="player" controls preload tabindex="0" ontimeupdate="updateCanvas()">
 <source type="audio/wav" src="./audioles/myWav.wav"/> 
 <source type="audio/mp3" src="./audioles/myMp3.mp3"/>
 Your  browser does not support HTML5 audio.
 </audio>
-<html>
-<head>
-<SCRIPT LANGUAGE="Javascript" SRC="./geometrie/point.js"> </SCRIPT>
-<script>
- function init()
- { 
- canvas = document.getElementById('myCanvas');
-   player=document.createElement('a');
-   player.setAttribute('href','./audioles/myMp3.mp3');
-   point1 = new point(myCanvas);
-  point1.affiche();
- 
- }
+	
+	
+<div class="player">
+ <audio id="player" preload tabindex="0"
+ontimeupdate="updateCanvas()">
+<source src=""/>
+ Your browser does not support HTML5 audio.
+ </audio>
 
-<div id="boutton">
-	<button  type="submit">Play</button >
-</div>
-</script>
-</head>
-<body>
+ <div>
+ <input type="url" placeholder="URL de l'audio" value="" />
+ </div>
 
+ <canvas width="200" height="200"></canvas>
+ </div>
+
+ <script>
+ document.querySelector(".player
+button").addEventListener("click", () => {
+ // Récupération de la valeur
+ const input = document.querySelector(".player input");
+ const value = input.value;
+
+ // Modification de la source
+ const audioSource = document.querySelector(".player source");
+ audioSource.setAttribute("src", value);
+
+ // Chargement et lancement de l'audio
+ const audioPlayer = document.querySelector(".player audio");
+ audioPlayer.load();
+ audioPlayer.play();
+});
+
+ const canvas = document.querySelector(".player canvas");
+ const context = canvas.getContext("2d");
+
+ function updateCanvas() {
+ // Réinitialisation du canvas
+ context.clearRect(0, 0, canvas.width, canvas.height);
+
+ // Calcul de la progression
+ const audioPlayer = document.querySelector(".player audio");
+ let duration = audioPlayer.duration;
+let time = audioPlayer.currentTime;
+
+ const endAngle = time * 2 * Math.PI / duration - 0.5 * Math.PI;
+ const progress = Math.round(time * 100 / duration);
+
+ // Affichage de la progression
+ context.beginPath();
+ context.arc(100, 100, 75, - 0.5 * Math.PI, endAngle, false);
+ context.lineWidth = 7;
+ context.strokeStyle = "white";
+context.stroke();
+
+ if (progress > 0) {
+ context.font = '48px Arial';
+ context.fillStyle = "white";
+context.textAlign = "center";
+context.fillText(progress + "%", 100, 118);
+}
+}
+
+
+ </script>
 </body>
 
 </html>
