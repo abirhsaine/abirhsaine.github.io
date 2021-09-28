@@ -1,0 +1,40 @@
+  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à rebours</title>
+</head>
+<body>
+    <p id="chrono">10</p>
+    <script>
+        // On récupère l'élément HTML avec l'id chrono
+        const chronoElt = document.getElementById("chrono");
+
+        // Tous les 1000ms (= 1s), on appelle la fonction update
+        // La fonction setInterval retourne un ID
+        const idInterval = setInterval(update, 1000);
+
+        // Le temps restant
+        let timeLeft = 10;
+
+        function update() {
+            // Si le temps est < 0
+            if (timeLeft < 0) {
+                // On arrête l'exécution toutes les 1000ms
+                clearInterval(idInterval);
+            } else {
+                // Mise à jour de l'élément HTML
+                chronoElt.innerHTML = timeLeft;
+
+                // Mise à jour du temps restant
+                timeLeft--;
+            }
+        }
+
+
+  </script>
+  </body>
+</html>
